@@ -37,15 +37,10 @@ const Login = () => {
         <div className="section-wrapper">
         <div className="top-login-explain">
             <h2>Login to Your Account </h2>
-
             <p>
               Please Login Your Account, Thank You!
             </p>
-
-
           </div>
-
-
           <form onSubmit={loginHandler} >
             {error && <div className="error_message">{error}</div>}
             <div className="input-wrapper">
@@ -95,7 +90,14 @@ const Login = () => {
         </div>
 
         <div className="login-banner-section ">
-          <h1>Login To Attend The Quiz</h1>
+        <h2><b>LOGO</b></h2>
+        <p> 
+        Achieve Your Dreams with UJ Tutorials<br/><br/>
+        At UJ Tutorials, we make success in competitive  
+        exams simple. With expert teachers, focused  
+        coaching, and a proven track record. <br/><br/>
+        we’re here to help you reach your goals, Join our community of  
+        achievers and take the first step towards your bright future.</p>
         </div>
       </div>
 

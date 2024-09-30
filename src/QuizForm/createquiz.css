@@ -1,0 +1,113 @@
+.create-quiz-container {
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+}
+
+.sidebar {
+  width: 250px;
+  background-color: #f4f4f4;
+  padding: 20px;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.sidebar ul li {
+  padding: 10px 0;
+  cursor: pointer;
+}
+
+.sidebar ul li:hover {
+  background-color: #007bff;
+  color: white;
+}
+
+.create-quiz-form-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+h2 {
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+.form-box {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  width: 600px;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  width: 45%;
+  position: relative;
+}
+
+.form-group label {
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.form-group input,
+.form-group select {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.icon-calendar,
+.icon-clock {
+  position: absolute;
+  right: 10px;
+  top: 35px;
+  font-size: 18px;
+  color: #999;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: space-between;
+}
+
+.clear-btn,
+.next-btn {
+  background-color: #007bff;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.clear-btn {
+  background-color: #007bff;
+}
+
+.next-btn {
+  background-color: #007bff;
+}
+
+.clear-btn:hover,
+.next-btn:hover {
+  opacity: 0.9;
+}
