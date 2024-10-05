@@ -11,7 +11,7 @@ const Dashboard = () => {
           <div className="header">
             <div>
             <div className="title">Hello, UJ TUTORIALS</div>
-            <p>Track test progress here. You almost reach a goal</p>
+            <p className='gray'>Track test progress here. You almost reach a goal</p>
             </div>
             <div className="date">
               <div className="date-text">05 Sep, 2024</div>

@@ -45,7 +45,7 @@ const CreateQuizForm = () => {
     <div className="create-quiz-container">
       <Sidebar />
       <div className="create-quiz-form-container">
-        <h2>Create Quiz</h2>
+        <h1>Create Quiz</h1>
         <div className="form-box">
           <div className="form-row">
             <div className="form-group">
