@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import {Link, useNavigate } from "react-router-dom";
 import "../Login/Login.css";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../firebase/firebase-config";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -8,26 +10,20 @@ const Login = () => {
   const [error, setError] = useState("");
   const navigate = useNavigate()
 
-
   const loginHandler = async (e) => {
     e.preventDefault();
-
-    try {
-      localStorage.setItem("authToken", data.token);
-
-      setTimeout(() => {
-
-        navigate("/")
-
-      }, 1800)
-
-    } catch (error) {
-      setError(error.response.data.error);
-      setTimeout(() => {
+      // localStorage.setItem("authToken", data.token);
+      await signInWithEmailAndPassword(auth,email,password).then(()=>{
+        setTimeout(() => {
+          localStorage.setItem("user_id",auth.currentUser.uid)
+          navigate("/")
+        }, 1800)
+      }).catch((err)=>{
+        setError("Provide valid credentials");
+        setTimeout(() => {
         setError("");
       }, 4500);
-
-    }
+      })      
   };
 
   return (

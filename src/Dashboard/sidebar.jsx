@@ -1,7 +1,23 @@
 import React from 'react';
 import './App.css'; 
+import { signOut } from 'firebase/auth';
+import { auth } from '../firebase/firebase-config';
+import { useNavigate } from 'react-router-dom';
 
 const Sidebar = () => {
+  const navigate = useNavigate()
+  // const signout = async()=>{
+  //   try{
+  //     await signOut(auth)
+  //     navigate('/login')
+  //     setTimeout(()=>{
+  //       alert("Logout successfully")
+  //     },1800)
+  //   }catch(err){
+  //     console.log(err)
+  //   }
+  // }
+
   return (
     <div className="container">
       <div className="sidebar">
@@ -20,7 +36,7 @@ const Sidebar = () => {
           </a>
         </div>
         <div className="nav-item">
-          <a href="/logout" className="nav-link">
+          <a className="nav-link">
             <i className="fas fa-sign-out-alt"></i> 
             Logout
           </a>
