@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import './QuizForm.css';
 import Sidebar from '../Dashboard/sidebar'; 
-import { useLocation } from 'react-router-dom'; 
+import { useLocation, useNavigate } from 'react-router-dom'; 
+import { setDoc,doc } from 'firebase/firestore';
+import { db } from '../firebase/firebase-config';
 
 const QuizForm = () => {
+  const navigate = useNavigate();
   const location = useLocation(); // Get state passed during navigation
-  const { numberOfQuestions } = location.state || { numberOfQuestions: 1 }; // Default to 1 question if not provided
-
+  const { numberOfQuestions , quizData } = location.state || { }; // Default to 1 question if not provided
   const [questions, setQuestions] = useState([]);
 
   useEffect(() => {
@@ -14,6 +16,7 @@ const QuizForm = () => {
     const initialQuestions = Array.from({ length: numberOfQuestions }, () => ({
       questionText: '',
       options: { A: '', B: '', C: '', D: '' },
+      answer:''
     }));
     setQuestions(initialQuestions);
   }, [numberOfQuestions]);
@@ -22,14 +25,31 @@ const QuizForm = () => {
     const updatedQuestions = [...questions];
     if (field === 'questionText') {
       updatedQuestions[index].questionText = value;
-    } else {
+    } 
+    else if(field === 'answer'){
+      updatedQuestions[index].answer = value;
+    }else {
       updatedQuestions[index].options[field] = value;
     }
     setQuestions(updatedQuestions);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async(e) => {
     e.preventDefault();
+    const docid = localStorage.getItem("docId")
+    const dbref = doc(db,"Admin",docid)
+    console.log({
+      Quizdata:quizData,
+      Questions : questions
+  })
+    await setDoc(dbref,
+      {
+        Quizdata:quizData,
+        Questions : questions
+    }).then(()=>{
+      alert("Submitted successfully")
+      navigate('/'); // Pass the number of questions as state
+    })
     console.log('Submitted Data:', questions);
   };
 
@@ -101,9 +121,9 @@ const QuizForm = () => {
                   <label>Answer</label>
                   <input
                     type="text"
-                    value={question.options.D}
+                    value={question.answer}
                     onChange={(e) =>
-                      handleChangeQuestion(index, 'D', e.target.value)
+                      handleChangeQuestion(index, 'answer', e.target.value)
                     }
                     placeholder="Enter answer"
                   />

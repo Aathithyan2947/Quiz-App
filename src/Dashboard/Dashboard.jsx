@@ -1,8 +1,16 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import ChartComponent from './ChartComponent';
 import './App.css'; // Import CSS for styling
 import Sidebar from './sidebar';
+import { auth } from '../firebase/firebase-config';
 const Dashboard = () => {
+  const [currentDate,setCurrentDate]=useState("")
+  useEffect(()=>{
+
+    const date = new Date()
+    setCurrentDate(date.toString().split(" ").slice(0,4).join(" "))
+  },[currentDate])
+
   return (
     <div className="container">
       <div className="main-content-wrapper">
@@ -14,7 +22,7 @@ const Dashboard = () => {
             <p className='gray'>Track test progress here. You almost reach a goal</p>
             </div>
             <div className="date">
-              <div className="date-text">05 Sep, 2024</div>
+              <div className="date-text">{currentDate}</div>
               <i className="icon-calendar"></i>
             </div>
           </div>

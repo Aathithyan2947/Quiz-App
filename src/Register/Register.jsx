@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../Register/Register.css";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../firebase/firebase-config"; 
 
 const Register = () => {
   const [username, setUsername] = useState("");
@@ -12,7 +14,6 @@ const Register = () => {
 
   const registerHandler = async (e) => {
     e.preventDefault();
-
     if (password !== confirmpassword) {
       setPassword("");
       setConfirmPassword("");
@@ -21,19 +22,16 @@ const Register = () => {
       }, 8000);
       return setError("Passwords do not match");
     }
-
-    try {
-      localStorage.setItem("authToken", data.token);
-
+    else {
+      await createUserWithEmailAndPassword(auth,email,password).then(()=>{
+        console.log("signed up")
+      }).catch(()=>{
+        setError("Invaild Email")
+      })
+      // localStorage.setItem("authToken", data.token);
       setTimeout(() => {
-        navigate("/");
+        navigate("/login");
       }, 1800);
-    } catch (error) {
-      setError(error.response?.data?.error || "An error occurred");
-
-      setTimeout(() => {
-        setError("");
-      }, 6000);
     }
   };
 

@@ -2,19 +2,21 @@ import React, { useState } from 'react';
 import './createquiz.css'; // Add your custom styles here
 import Sidebar from '../Dashboard/sidebar'; // Assuming Sidebar is a separate component
 import { useNavigate } from 'react-router-dom'; // Import the navigation hook
+import { addDoc, collection } from 'firebase/firestore';
+import { auth, db } from '../firebase/firebase-config';
 
 const CreateQuizForm = () => {
   const [quizData, setQuizData] = useState({
     date: '',
     type: '',
     startTime: '',
-    endTime: '',
+    duration: '',
     questions: '',
   });
 
   const navigate = useNavigate(); // Initialize navigate hook
 
-  const handleChange = (e) => {
+  const handleChange = async(e) => {
     const { name, value } = e.target;
     setQuizData({
       ...quizData,
@@ -27,15 +29,20 @@ const CreateQuizForm = () => {
       date: '',
       type: '',
       startTime: '',
-      endTime: '',
+      duration: '',
       questions: '',
     });
   };
 
-  const handleNext = () => {
+  const handleNext = async() => {
+    const dbref = collection(db,"Admin")
     const numberOfQuestions = parseInt(quizData.questions, 10);
     if (numberOfQuestions > 0) {
-      navigate('/quizform', { state: { numberOfQuestions } }); // Pass the number of questions as state
+      await addDoc(dbref,quizData).then((docRef)=>{
+        localStorage.setItem("docId",docRef.id)
+        console.log({ state: { numberOfQuestions ,quizData} })
+        navigate('/quizform', { state: { numberOfQuestions , quizData} });
+      })
     } else {
       alert('Please enter a valid number of questions.');
     }
@@ -84,14 +91,18 @@ const CreateQuizForm = () => {
               <i className="icon-clock"></i> {/* Use icon here */}
             </div>
             <div className="form-group">
-              <label>End Time</label>
+              <label>Duration</label>
               <input 
-                type="time" 
-                name="endTime" 
-                value={quizData.endTime} 
+                type="range" 
+                name="duration" 
+                min="0"
+                max="60"
                 onChange={handleChange} 
               />
               <i className="icon-clock"></i> {/* Use icon here */}
+              <div>
+                <h5>{quizData.duration} minutes</h5>
+              </div>
             </div>
           </div>
           <div className="form-row">
