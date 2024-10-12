@@ -1,0 +1,41 @@
+.container {
+    margin: 0 auto;
+    text-align: center;
+    font-size: 24px;
+  }
+  
+  .review-table, .result-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  .review-table th, .review-table td,
+  .result-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  
+  .review-table th {
+    background-color: #f2f2f2;
+    text-align: center;
+  }
+  
+  .review-table td, .result-table td {
+    text-align: center;
+  }
+  
+  .show-result-btn, .back-btn {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .show-result-btn:hover, .back-btn:hover {
+    background-color: #0056b3;
+  }
+  

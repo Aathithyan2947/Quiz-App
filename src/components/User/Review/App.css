@@ -1,0 +1,39 @@
+.container {
+  margin: 0 auto;
+  text-align: center;
+}
+
+.review-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.review-table th,
+.review-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.review-table th {
+  background-color: #f2f2f2;
+  text-align: center;
+}
+
+.review-table td {
+  text-align: center;
+}
+
+.show-result-btn {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.show-result-btn:hover {
+  background-color: #0056b3;
+}
