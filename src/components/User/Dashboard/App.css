@@ -16,12 +16,12 @@ body {
 
 .container {
   display: flex;
-  flex-direction: row; /* Default layout for larger screens */
+  flex-direction: row; 
 }
 
 .sidebar {
   background-color: #fff;
-  width: 200px; /* Fixed width for sidebar */
+  width: 200px;
   padding: 20px;
 }
 
@@ -50,6 +50,7 @@ body {
 
 .nav-item {
   margin-bottom: 10px;
+  cursor: pointer;
 }
 
 .nav-link {
@@ -137,8 +138,11 @@ body {
 
 .results {
   margin-bottom: 20px;
+  font-size: 24px;
 }
-
+.results-title{
+  font-weight: bold;
+}
 .results-table {
   width: 100%;
   border-collapse: collapse;

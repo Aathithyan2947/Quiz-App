@@ -14,7 +14,7 @@ const CreateQuizForm = () => {
     questions: '',
   });
 
-  const navigate = useNavigate(); // Initialize navigate hook
+  const navigate = useNavigate();
 
   const handleChange = async(e) => {
     const { name, value } = e.target;
@@ -64,7 +64,7 @@ const CreateQuizForm = () => {
                 onChange={handleChange}
                 placeholder="Enter a date"
               />
-              <i className="icon-calendar"></i> {/* Use icon here */}
+              <i className="icon-calendar"></i>
             </div>
             <div className="form-group">
               <label>Type</label>
@@ -88,7 +88,7 @@ const CreateQuizForm = () => {
                 value={quizData.startTime} 
                 onChange={handleChange} 
               />
-              <i className="icon-clock"></i> {/* Use icon here */}
+              <i className="icon-clock"></i> 
             </div>
             <div className="form-group">
               <label>Duration</label>

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import ChartComponent from './ChartComponent';
-import './App.css'; // Import CSS for styling
+import './App.css'; 
 import Sidebar from './sidebar';
 import { auth } from '../firebase/firebase-config';
 const Dashboard = () => {
