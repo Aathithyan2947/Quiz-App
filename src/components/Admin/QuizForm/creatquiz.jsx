@@ -3,7 +3,7 @@ import './createquiz.css'; // Add your custom styles here
 import Sidebar from '../Dashboard/sidebar'; // Assuming Sidebar is a separate component
 import { useNavigate } from 'react-router-dom'; // Import the navigation hook
 import { addDoc, collection } from 'firebase/firestore';
-import { auth, db } from '../firebase/firebase-config';
+import { auth, db } from '../../../firebase/firebase-config';
 
 const CreateQuizForm = () => {
   const [quizData, setQuizData] = useState({
