@@ -39,6 +39,7 @@ const UserDashboard = () => {
                 <tr className="results-header">
                   <th className="results-cell">Assessments</th>
                   <th className="results-cell">Start At</th>
+                  <th className="results-cell">Attend Test</th>
                 </tr>
               </thead>
               <tbody>
