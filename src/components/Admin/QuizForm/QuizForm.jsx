@@ -3,7 +3,7 @@ import './QuizForm.css';
 import Sidebar from '../Dashboard/sidebar'; 
 import { useLocation, useNavigate } from 'react-router-dom'; 
 import { setDoc,doc } from 'firebase/firestore';
-import { db } from '../../Authentication/firebase/firebase-config';
+import { db } from '../firebase/firebase-config';
 
 const QuizForm = () => {
   const navigate = useNavigate();

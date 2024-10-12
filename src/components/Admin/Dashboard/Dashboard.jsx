@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import ChartComponent from './ChartComponent';
 import './App.css'; 
 import Sidebar from './sidebar';
-import { auth } from '../../Authentication/firebase/firebase-config';
+import { auth } from '../firebase/firebase-config';
 const Dashboard = () => {
   const [currentDate,setCurrentDate]=useState("")
   useEffect(()=>{

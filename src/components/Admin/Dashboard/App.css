@@ -5,7 +5,7 @@ body {
   margin: 0;
   padding: 0;
   background-color: #f4f4f4;
-  color: black;
+  color:  black;
   min-height: 100vh;
 }
 
@@ -16,12 +16,12 @@ body {
 
 .container {
   display: flex;
-  flex-direction: row; 
+  
 }
 
 .sidebar {
   background-color: #fff;
-  width: 200px;
+  width: 200px; /* Fixed width for sidebar */
   padding: 20px;
 }
 
@@ -243,6 +243,66 @@ body {
   color: #888;
 }
 @media (max-width: 1200px) {
+  .container {
+    flex-direction: column; 
+  }
+  .sidebar {
+    width: 100%;
+  }
+  .main-content-wrapper {
+    flex-direction: column; 
+  }
+  .test-conducted {
+    border-left: none; 
+  }
+}
+
+@media (max-width: 768px) {
+  .title {
+    font-size: 28px;
+  }
+  .nav-item {
+    margin-bottom: 15px; 
+  }
+  .stat {
+    width: 100%; 
+    margin-bottom: 10px; 
+  }
+  .chart-container {
+    height: 300px; 
+  }
+  .search-bar {
+    flex-direction: column;
+  }
+  .search-input {
+    margin-right: 0;
+    margin-bottom: 10px; 
+  }
+  .test-item-info {
+    flex-direction: column; 
+  }
+}
+
+@media (max-width: 480px) {
+  .nav-link {
+    font-size: 18px; 
+  }
+  .search-input {
+    height: 30px;
+  }
+  .test-item-title {
+    font-size: 20px; 
+  }
+  .stat-value {
+    font-size: 20px; 
+  }
+  .test-item-value {
+    font-size: 20px; 
+  }
+  .add-icon {
+    font-size: 14px; 
+  }
+}@media (max-width: 1200px) {
   .container {
     flex-direction: column; 
   }

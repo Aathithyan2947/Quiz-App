@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css'; 
 import { signOut } from 'firebase/auth';
-import { auth } from '../../Authentication/firebase/firebase-config';
+import { auth } from '../firebase/firebase-config';
 import { useNavigate } from 'react-router-dom';
 
 const Sidebar = () => {
