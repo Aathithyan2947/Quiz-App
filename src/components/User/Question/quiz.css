@@ -33,6 +33,7 @@ body {
   border-radius: 5px;
   font-size: 18px;
   text-align: center;
+  height: 10vh;
   cursor: pointer;
   transition: background-color 0.3s ease, border-color 0.3s ease;
 }
@@ -86,6 +87,7 @@ h3 {
 }
 
 .navigation-buttons .back-btn,
+.navigation-buttons .clear-btn,
 .navigation-buttons .next-btn {
   padding: 10px 20px;
   font-size: 16px;
@@ -185,20 +187,45 @@ h3 {
     padding: 20px;
   }
 
-  .navigation-buttons {
+  /* .navigation-buttons {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-  }
+  } */
 
-  .navigation-buttons .back-btn {
+  /* .navigation-buttons .back-btn {
     margin-bottom: 10px;
     margin-right: 0;
-  }
-
+  } */
+  .navigation-buttons .back-btn,
   .navigation-buttons .back-btn,
   .navigation-buttons .next-btn {
     width: 100%;
     text-align: center;
   }
+}
+.grid-item {
+  /* Default styles for the grid button */
+  background-color: #f0f0f0; /* Neutral color */
+  border: 1px solid #ccc;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.grid-item.active {
+  background-color: #007bff; /* Color for the active question */
+  color: white;
+}
+
+.grid-item.answered {
+  background-color: #28a745; /* Color for answered questions */
+  color: white;
+}
+.timer {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
 }

@@ -5,13 +5,28 @@ import { Chart as ChartJS, LineElement, CategoryScale, LinearScale, Title, Toolt
 // Register necessary components
 ChartJS.register(LineElement, CategoryScale, LinearScale, Title, Tooltip, Legend, PointElement);
 
-const ChartComponent = () => {
+const ChartComponent = ({ userTestDetails }) => {
+  // Create arrays to hold usernames (labels) and their average marks (data points)
+  const labels = [];
+  const dataPoints = [];
+
+  // Check if userTestDetails is defined and is an array
+  if (Array.isArray(userTestDetails)) {
+    userTestDetails.forEach((user) => {
+      // Check if the user has totalMarks and totalTests properties
+      if (user.totalMarks !== undefined && user.totalTests !== undefined && user.totalTests > 0) {
+        labels.push(user.username); // Add username as label
+        dataPoints.push(user.totalMarks / user.totalTests); // Calculate average marks per user
+      }
+    });
+  }
+
   const data = {
-    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep'],
+    labels, // Usernames as labels
     datasets: [
       {
-        label: 'Product Trends by Month',
-        data: [30, 45, 40, 55, 50, 60, 65, 90, 120],
+        label: 'Average Test Scores per User',
+        data: dataPoints, // Average marks per user
         borderColor: 'rgb(54, 162, 235)',
         borderWidth: 2,
         fill: false,
@@ -22,7 +37,7 @@ const ChartComponent = () => {
 
   const options = {
     responsive: true,
-    maintainAspectRatio: false, // Disable aspect ratio to allow width and height adjustments
+    maintainAspectRatio: false,
     plugins: {
       legend: {
         position: 'top',
@@ -30,7 +45,7 @@ const ChartComponent = () => {
       tooltip: {
         callbacks: {
           label: function (tooltipItem) {
-            return `${tooltipItem.dataset.label}: ${tooltipItem.raw}`;
+            return `${tooltipItem.dataset.label}: ${tooltipItem.raw.toFixed(2)}`; // Show average with 2 decimal places
           },
         },
       },
@@ -38,6 +53,16 @@ const ChartComponent = () => {
     scales: {
       y: {
         beginAtZero: true,
+        title: {
+          display: true,
+          text: 'Average Score',
+        },
+      },
+      x: {
+        title: {
+          display: true,
+          text: 'User',
+        },
       },
     },
   };

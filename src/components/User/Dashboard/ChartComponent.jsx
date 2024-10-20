@@ -1,17 +1,33 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Line } from 'react-chartjs-2';
 import { Chart as ChartJS, LineElement, CategoryScale, LinearScale, Title, Tooltip, Legend, PointElement } from 'chart.js';
 
-
 ChartJS.register(LineElement, CategoryScale, LinearScale, Title, Tooltip, Legend, PointElement);
 
-const ChartComponent = () => {
+const ChartComponent = ({ attendedTests }) => {
+  const [chartLabels, setChartLabels] = useState([]);
+  const [chartData, setChartData] = useState([]);
+  
+
+  useEffect(() => {
+    if (Array.isArray(attendedTests) && attendedTests.length > 0) {
+      // Only process if attendedTests is a valid array
+      const labels = attendedTests.map(test => test.attendedDate || 'N/A'); // Use attendedDate or fallback to 'N/A'
+      const data = attendedTests.map(test => 
+        test.totalQuestions > 0 ? (test.totalMarks / test.totalQuestions) * 100 : 0 // Avoid division by 0
+      );
+      setChartLabels(labels);
+      setChartData(data);
+      console.log(data)
+    }
+  }, [attendedTests]);
+
   const data = {
-    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep'],
+    labels: chartLabels, // Dynamic labels (attended dates)
     datasets: [
       {
-        label: 'Product Trends by Month',
-        data: [30, 45, 40, 55, 50, 60, 65, 90, 120],
+        label: 'Marks Percentage per Test',
+        data: chartData, // Dynamic percentage data
         borderColor: 'rgb(54, 162, 235)',
         borderWidth: 2,
         fill: false,
@@ -30,7 +46,7 @@ const ChartComponent = () => {
       tooltip: {
         callbacks: {
           label: function (tooltipItem) {
-            return `${tooltipItem.dataset.label}: ${tooltipItem.raw}`;
+            return `${tooltipItem.dataset.label}: ${tooltipItem.raw.toFixed(2)}%`;
           },
         },
       },
@@ -38,12 +54,17 @@ const ChartComponent = () => {
     scales: {
       y: {
         beginAtZero: true,
+        ticks: {
+          callback: function(value) {
+            return `${value}%`; // Add % symbol to y-axis values
+          }
+        }
       },
     },
   };
 
   return (
-    <div style={{ width: '1000px', height: '500px' }}> {/* Adjust size here */}
+    <div style={{ width: '1000px', height: '500px' }}>
       <Line data={data} options={options} />
     </div>
   );

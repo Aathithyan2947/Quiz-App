@@ -29,6 +29,7 @@ const Register = () => {
         setError("Invaild Email")
       })
       // localStorage.setItem("authToken", data.token);
+      localStorage.setItem("username",username)
       setTimeout(() => {
         navigate("/login");
       }, 1800);

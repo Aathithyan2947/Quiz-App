@@ -6,17 +6,17 @@ import { useNavigate } from 'react-router-dom';
 
 const Sidebar = () => {
   const navigate = useNavigate()
-  // const signout = async()=>{
-  //   try{
-  //     await signOut(auth)
-  //     navigate('/login')
-  //     setTimeout(()=>{
-  //       alert("Logout successfully")
-  //     },1800)
-  //   }catch(err){
-  //     console.log(err)
-  //   }
-  // }
+  const signout = async()=>{
+    try{
+      await signOut(auth).then(()=>{
+        localStorage.clear()
+        alert("Logged out")
+        navigate('/login')
+      })
+    }catch(err){
+      console.log(err)
+    }
+  }
 
   return (
     <div className="container">
@@ -36,7 +36,7 @@ const Sidebar = () => {
           </a>
         </div>
         <div className="nav-item">
-          <a className="nav-link">
+          <a onClick={signout} className="nav-link">
             <i className="fas fa-sign-out-alt"></i> 
             Logout
           </a>

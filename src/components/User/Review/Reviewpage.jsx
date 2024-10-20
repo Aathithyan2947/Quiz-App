@@ -1,20 +1,32 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 import './App.css';
 
 const ReviewPage = () => {
   const navigate = useNavigate();
+  const location = useLocation();
+  const {results,details} =  location.state || { data: [] }
+  const answers = results.answers
+  const [evaluate,setEvaluate]=useState([]);
 
-  const questions = [
-    { id: 1, attended: true },
-    { id: 2, attended: true },
-    { id: 3, attended: false },
-    { id: 4, attended: true },
-    { id: 5, attended: true },
-  ];
+  useEffect(()=>{
+    DummyResult()
+  },[])
 
+  const DummyResult = () => {
+    let temp = [];
+    for (let i = 0; i < answers.length; i++) {
+      const newObj = {
+        id: i + 1,
+        attended: answers[i] !== '' 
+      };
+      temp.push(newObj);  
+    }
+    setEvaluate(temp)
+  };
+  
   const handleShowResult = () => {
-    navigate('/result'); 
+    navigate('/result',{state:{results,evaluate,details}}); 
   };
 
   return (
@@ -28,7 +40,7 @@ const ReviewPage = () => {
           </tr>
         </thead>
         <tbody>
-          {questions.map((question) => (
+          {evaluate.map((question) => (
             <tr key={question.id}>
               <td>{question.id}</td>
               <td>{question.attended ? 'Attended' : 'Not Attended'}</td>

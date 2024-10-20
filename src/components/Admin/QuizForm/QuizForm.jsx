@@ -44,6 +44,7 @@ const QuizForm = () => {
   })
     await setDoc(dbref,
       {
+        Doc_id:docid,
         Quizdata:quizData,
         Questions : questions
     }).then(()=>{

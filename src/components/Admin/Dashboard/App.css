@@ -94,7 +94,7 @@ body {
 
 .stats {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   margin-bottom: 20px;
 }
@@ -147,12 +147,15 @@ body {
 .results-header {
   background-color: #f0f0f0;
   padding: 10px;
-  text-align: left;
+  text-align: center;
 }
 
 .results-row {
   padding: 10px;
+  margin-top: 5px;
   border-bottom: 1px solid #ddd;
+  text-align: left;
+  font-size: 15px;
 }
 
 .results-cell {

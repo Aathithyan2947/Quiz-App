@@ -13,17 +13,32 @@ const Login = () => {
   const loginHandler = async (e) => {
     e.preventDefault();
       // localStorage.setItem("authToken", data.token);
-      await signInWithEmailAndPassword(auth,email,password).then(()=>{
-        setTimeout(() => {
-          localStorage.setItem("user_id",auth.currentUser.uid)
-          navigate("/")
-        }, 1800)
-      }).catch((err)=>{
-        setError("Provide valid credentials");
-        setTimeout(() => {
-        setError("");
-      }, 4500);
-      })      
+      if(email==="admin@gmail.com" || email==="aathireguraj@gmail.com"){
+        await signInWithEmailAndPassword(auth,email,password).then(()=>{
+          setTimeout(() => {
+            localStorage.setItem("user_id",auth.currentUser.uid)
+            navigate("/")
+          }, 1800)
+        }).catch((err)=>{
+          setError("Provide valid credentials");
+          setTimeout(() => {
+          setError("");
+        }, 4500);
+        })  
+      }    
+      else{
+        await signInWithEmailAndPassword(auth,email,password).then(()=>{
+          setTimeout(() => {
+            localStorage.setItem("user_id",auth.currentUser.uid)
+            navigate("/user")
+          }, 1800)
+        }).catch((err)=>{
+          setError("Provide valid credentials");
+          setTimeout(() => {
+          setError("");
+        }, 4500);
+        })  
+      }
   };
 
   return (
