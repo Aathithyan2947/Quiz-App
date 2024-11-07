@@ -21,6 +21,7 @@ const Sidebar = () => {
   return (
     <div className="container">
       <div className="sidebar">
+        <div>
         <div className="logo">LOGO</div>
         <div className="nav-item">
           <a href="/" className="nav-link">
@@ -34,6 +35,7 @@ const Sidebar = () => {
             Create Quiz
             <i className="fas fa-plus-circle add-icon"></i> 
           </a>
+        </div>
         </div>
         <div className="nav-item">
           <a onClick={signout} className="nav-link">

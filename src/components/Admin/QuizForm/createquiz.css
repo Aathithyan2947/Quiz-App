@@ -11,7 +11,7 @@
   box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
 }
 button{
-  font-size: 24;
+  font-size: 24px;
 }
 .sidebar ul {
   list-style-type: none;
@@ -63,8 +63,9 @@ button{
 }
 
 .form-group label {
-  font-weight: 600;
+  font-weight: 700;
   margin-bottom: 5px;
+  font-size: 24px;
 }
 
 .form-group input,
@@ -72,6 +73,7 @@ button{
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
+  font-size: 18px;
 }
 
 .icon-calendar,
