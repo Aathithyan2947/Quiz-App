@@ -41,13 +41,13 @@ const Register = () => {
       <div className="register-big-wrapper">
         <div className="register-banner-section">
         <h2><b>LOGO</b></h2>
-        <p> 
+        <h3> 
         Achieve Your Dreams with UJ Tutorials<br/><br/>
         At UJ Tutorials, we make success in competitive  
         exams simple. With expert teachers, focused  
         coaching, and a proven track record. <br/><br/>
         we’re here to help you reach your goals, Join our community of  
-        achievers and take the first step towards your bright future.</p>
+        achievers and take the first step towards your bright future.</h3>
         </div>
 
         <div className="section-wrapper">

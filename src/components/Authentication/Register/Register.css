@@ -61,7 +61,7 @@
 
 .top-suggest_login {
     margin-top: 15px;
-    font-size: 0.8rem;
+    font-size: 1rem;
 }
 
 .top-suggest_login span {
@@ -83,12 +83,12 @@
 .top-register-explain h2 {
     font-weight: bold;
     margin-bottom: 1.2rem;
-    font-size: 2.4rem;
+    font-size: 2.5rem;
 }
 
 .top-register-explain p {
     color: #000000;
-    font-size: 0.9rem;
+    font-size: 1rem;
 }
 
 .register-big-wrapper form {
@@ -100,7 +100,7 @@
     position: absolute;
     top: -10px;
     left: 10px;
-    font-size: 0.8rem;
+    font-size: 1rem;
     background-color: white;
     color: #424242;
     padding: 0 6px;
@@ -118,7 +118,7 @@
     padding-top: 22px;
     border: #dadcdd solid 1px;
     border-radius: 7px;
-    font-size: 0.8rem;
+    font-size: 1.2rem;
     color: #646464;
 }
 
@@ -133,7 +133,7 @@
 .register-screen__forgotpassword {
     float: right;
     text-decoration: none;
-    font-size: 0.7rem;
+    font-size: 1rem;
     margin-top: -13px;
     color: rgb(0, 0, 0);
     font-weight: 600;
@@ -163,6 +163,6 @@
     background-color: rgba(245, 72, 72, 0.9);
     color: white;
     padding: 8px;
-    font-size: 0.9rem;
+    font-size: 1rem;
     text-align: center;
 }

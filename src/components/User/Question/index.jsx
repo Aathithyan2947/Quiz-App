@@ -132,9 +132,9 @@ const QuestionCard = () => {
       </div>
 
       <div className="navigation-buttons">
-        <button className="back-btn" onClick={handleBack} disabled={currentQuestionIndex === 0}>Back</button>
-        {currentQuestionIndex === data.length - 1 ? <button className="next-btn" onClick={handleSubmit}>submit</button> :<button className="next-btn" onClick={handleNext}>next</button>}
-        <button className="clear-btn" onClick={handleClearAnswer} disabled={!selectedAnswers[currentQuestionIndex]}>Clear Answer</button>
+        <button className="backbn" onClick={handleBack} disabled={currentQuestionIndex === 0}>Back</button>
+        {currentQuestionIndex === data.length - 1 ? <button className="nextbn" onClick={handleSubmit}>submit</button> :<button className="nextbn" onClick={handleNext}>next</button>}
+        <button className="clearbn" onClick={handleClearAnswer} disabled={!selectedAnswers[currentQuestionIndex]}>Clear Answer</button>
       </div>
     </div>
   );

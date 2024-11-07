@@ -54,7 +54,7 @@
 }
 
 .top-suggest_register {
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     margin-top:10px;
 }
 
@@ -64,7 +64,7 @@
 }
 
 .top-suggest_register a {
-    font-size: 0.7rem;
+    font-size: 0.8rem;
     color: rgb(0, 0, 0);
     text-decoration: none;
     font-weight: 600;
@@ -77,12 +77,12 @@
 .top-login-explain h2 {
     font-weight: bold;
     margin-bottom: 1.4rem;
-    font-size: 2.4rem;
+    font-size: 2.6rem;
 }
 
 .top-login-explain p {
     color: #afafaf;
-    font-size: 0.7rem;
+    font-size: 1rem;
 }
 
 .login-big-wrapper form {
@@ -94,7 +94,7 @@
     position: absolute;
     top: -10px;
     left: 14px;
-    font-size: 0.8rem;
+    font-size: 1rem;
     background-color: white;
     color: #646464;
     padding: 0 6px;
@@ -112,7 +112,7 @@
     padding-top: 22px;
     border: #dadcdd solid 1px;
     border-radius: 5px;
-    font-size: 0.9rem;
+    font-size: 1.2rem;
     color: #646464;
 }
 
@@ -128,7 +128,7 @@
     float: right;
     text-decoration: none;
     font-family: 'Inter', sans-serif;
-    font-size: 0.7rem;
+    font-size: 0.9rem;
     margin-top: -13px;
     color: rgb(0, 0, 0);
     font-weight: 600;
@@ -158,6 +158,6 @@
     background-color: rgba(245, 72, 72, 0.9);
     color: white;
     padding: 8px;
-    font-size: 0.9rem;
+    font-size: 1rem;
     text-align: center;
 }
