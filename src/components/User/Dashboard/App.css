@@ -22,7 +22,11 @@ body {
 .sidebar {
   background-color: #fff;
   width: 200px;
+  height: 90vh;
   padding: 20px;
+  flex-direction: column;
+  display: flex;
+  justify-content: space-between;
 }
 
 .main-content-wrapper {
@@ -57,7 +61,7 @@ body {
   display: block;
   padding: 10px;
   text-decoration: none;
-  font-size: 20px;
+  font-size: 24px;
   color: #333;
   border-radius: 5px;
 }
@@ -91,7 +95,9 @@ body {
 .calendar-icon {
   font-size: 20px;
 }
-
+.forh2{
+  font-size: 30px;
+}
 .stats {
   display: flex;
   justify-content: space-between;
@@ -122,7 +128,7 @@ body {
 }
 
 .chart-title {
-  font-size: 24px;
+  font-size: 30px;
   font-weight: bold;
   margin-bottom: 10px;
 }
@@ -142,6 +148,7 @@ body {
 }
 .results-title{
   font-weight: bold;
+  margin-bottom: 10px;
 }
 .results-table {
   width: 100%;
@@ -157,6 +164,7 @@ body {
 .results-row {
   padding: 10px;
   border-bottom: 1px solid #ddd;
+  font-size: 20px;
 }
 
 .results-cell {
@@ -164,7 +172,7 @@ body {
 }
 
 .test-conducted-title {
-  font-size: 38px;
+  font-size: 36px;
   font-weight: bold;
   margin-bottom: 10px;
 }
@@ -190,6 +198,7 @@ body {
   padding: 10px;
   border: none;
   min-width: 100px;
+  font-size: 15px;
   border-radius: 5px;
   background-color: #007bff;
   color: #fff;
@@ -238,7 +247,7 @@ body {
 
 .nav-link i {
   margin-right: 10px;
-  font-size: 20px;
+  font-size: 24px;
 }
 
 .add-icon {

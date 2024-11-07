@@ -118,7 +118,7 @@ const ResultPage = () => {
 
       <center>
         <button className="back-btn" onClick={handleBack}>
-          return home
+          Return Home
         </button>
       </center>
     </div>

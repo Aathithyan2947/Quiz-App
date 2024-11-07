@@ -21,12 +21,14 @@ const Sidebar = () => {
   return (
     <div className="container">
       <div className="sidebar">
+        <div>
         <div className="logo">LOGO</div>
         <div className="nav-item">
           <a href="/" className="nav-link">
             <i className="fas fa-home"></i>
             Home
           </a>
+        </div>
         </div>
         <div className="nav-item">
           <a onClick={signout}className="nav-link">

@@ -1,12 +1,14 @@
 .container {
   margin: 0 auto;
   text-align: center;
+  padding: 20px; /* Adds some space around the container */
 }
 
 .review-table {
   width: 100%;
+  max-width: 800px; 
   border-collapse: collapse;
-  margin-top: 20px;
+  margin: 20px auto; /* Center the table */
 }
 
 .review-table th,
@@ -26,6 +28,7 @@
 
 .show-result-btn {
   margin-top: 20px;
+  font-size: 18px;
   padding: 10px 20px;
   background-color: #007bff;
   color: white;

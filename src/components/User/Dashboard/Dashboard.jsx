@@ -134,7 +134,7 @@ const UserDashboard = () => {
           <div className="test-conducted-title">Test Attended</div>
           {
             attendedTests.length === 0 ? (
-              <h1>No Test has been attended yet!</h1>
+              <h2 className='forh2'>No Test has been attended yet!</h2>
             ) : (
               attendedTests.map((test, index) => (
                 <div className="test-list" key={index}>
