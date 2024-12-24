@@ -64,10 +64,10 @@ const ChartComponent = ({ attendedTests }) => {
   };
 
   return (
-    <div style={{ width: '1000px', height: '500px' }}>
+    <div className="chart-container" style={{ maxWidth: '800px', height: '400px' }}>
       <Line data={data} options={options} />
     </div>
-  );
+  );  
 };
 
 export default ChartComponent;
