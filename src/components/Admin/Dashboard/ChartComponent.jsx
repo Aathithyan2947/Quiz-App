@@ -2,6 +2,7 @@ import React from 'react';
 import { Line } from 'react-chartjs-2';
 import { Chart as ChartJS, LineElement, CategoryScale, LinearScale, Title, Tooltip, Legend, PointElement } from 'chart.js';
 
+
 // Register necessary components
 ChartJS.register(LineElement, CategoryScale, LinearScale, Title, Tooltip, Legend, PointElement);
 
@@ -68,8 +69,17 @@ const ChartComponent = ({ userTestDetails }) => {
   };
 
   return (
-    <div style={{ width: '1000px', height: '500px' }}> {/* Adjust size here */}
-      <Line data={data} options={options} />
+    <div className="container py-4">
+      <div className="row">
+        <div className="col-12">
+          <div className="card p-3">
+            <h5>Average Test Scores per User</h5>
+            <div style={{ width: '100%', height: '400px' }}>
+              <Line data={data} options={options} />
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

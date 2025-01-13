@@ -1,24 +1,44 @@
-import React, { useState, useEffect } from 'react';
+/* eslint-disable react/prop-types */
+import { useState, useEffect } from 'react';
 import { Line } from 'react-chartjs-2';
-import { Chart as ChartJS, LineElement, CategoryScale, LinearScale, Title, Tooltip, Legend, PointElement } from 'chart.js';
+import {
+  Chart as ChartJS,
+  LineElement,
+  CategoryScale,
+  LinearScale,
+  Title,
+  Tooltip,
+  Legend,
+  PointElement,
+} from 'chart.js';
 
-ChartJS.register(LineElement, CategoryScale, LinearScale, Title, Tooltip, Legend, PointElement);
+ChartJS.register(
+  LineElement,
+  CategoryScale,
+  LinearScale,
+  Title,
+  Tooltip,
+  Legend,
+  PointElement
+);
 
 const ChartComponent = ({ attendedTests }) => {
   const [chartLabels, setChartLabels] = useState([]);
   const [chartData, setChartData] = useState([]);
-  
 
   useEffect(() => {
     if (Array.isArray(attendedTests) && attendedTests.length > 0) {
       // Only process if attendedTests is a valid array
-      const labels = attendedTests.map(test => test.attendedDate || 'N/A'); // Use attendedDate or fallback to 'N/A'
-      const data = attendedTests.map(test => 
-        test.totalQuestions > 0 ? (test.totalMarks / test.totalQuestions) * 100 : 0 // Avoid division by 0
+      const labels = attendedTests.map((test) => test.attendedDate || 'N/A'); // Use attendedDate or fallback to 'N/A'
+      const data = attendedTests.map(
+        (test) =>
+          test.totalQuestions > 0
+            ? (test.totalMarks / test.totalQuestions) * 100
+            : 0 // Avoid division by 0
       );
       setChartLabels(labels);
       setChartData(data);
-      console.log(data)
+      console.log(data);
     }
   }, [attendedTests]);
 
@@ -46,7 +66,9 @@ const ChartComponent = ({ attendedTests }) => {
       tooltip: {
         callbacks: {
           label: function (tooltipItem) {
-            return `${tooltipItem.dataset.label}: ${tooltipItem.raw.toFixed(2)}%`;
+            return `${tooltipItem.dataset.label}: ${tooltipItem.raw.toFixed(
+              2
+            )}%`;
           },
         },
       },
@@ -55,19 +77,22 @@ const ChartComponent = ({ attendedTests }) => {
       y: {
         beginAtZero: true,
         ticks: {
-          callback: function(value) {
+          callback: function (value) {
             return `${value}%`; // Add % symbol to y-axis values
-          }
-        }
+          },
+        },
       },
     },
   };
 
   return (
-    <div className="chart-container" style={{ maxWidth: '800px', height: '400px' }}>
+    <div
+      className='chart-container'
+      style={{ maxWidth: '800px', height: '400px' }}
+    >
       <Line data={data} options={options} />
     </div>
-  );  
+  );
 };
 
 export default ChartComponent;

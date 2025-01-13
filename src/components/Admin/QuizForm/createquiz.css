@@ -1,3 +1,4 @@
+/* Default Styles (for larger screens) */
 .create-quiz-container {
   display: flex;
   flex-direction: row;
@@ -10,9 +11,11 @@
   padding: 20px;
   box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
 }
-button{
+
+button {
   font-size: 24px;
 }
+
 .sidebar ul {
   list-style-type: none;
   padding: 0;
@@ -37,7 +40,6 @@ button{
   justify-content: center;
   padding: 20px;
 }
-
 
 .form-box {
   background-color: white;
@@ -102,15 +104,89 @@ button{
 
 .clear-btn {
   background-color: #007bff;
-  font-size:18px;
+  font-size: 18px;
 }
 
 .next-btn {
   background-color: #007bff;
-  font-size:18px;
+  font-size: 18px;
 }
 
 .clear-btn:hover,
 .next-btn:hover {
   opacity: 0.9;
+}
+
+/* Media Query for Mobile View */
+@media (max-width: 767px) {
+  /* Make sidebar hidden or collapsible in mobile */
+  .create-quiz-container {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: absolute;
+    top: 0;
+    left: -250px; /* Hide by default */
+    transition: left 0.3s ease-in-out;
+    z-index: 1000;
+  }
+
+  /* Show sidebar when toggled (e.g., add an 'open' class) */
+  .sidebar.open {
+    left: 0; /* Sidebar slides in when open */
+  }
+
+  /* Button to open sidebar on mobile */
+  .sidebar ul {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .create-quiz-form-container {
+    padding: 15px;
+    width: 100%;
+  }
+
+  .form-box {
+    width: 90%; /* Take full width for small screens */
+    padding: 20px;
+  }
+
+  .form-row {
+    flex-direction: column; /* Stack form fields vertically */
+  }
+
+  .form-group {
+    width: 100%; /* Full width on mobile */
+    margin-bottom: 15px; /* Space between fields */
+  }
+
+  .form-group label {
+    font-size: 18px;
+  }
+
+  .form-group input,
+  .form-group select {
+    font-size: 16px;
+  }
+
+  .form-actions {
+    flex-direction: column; /* Stack buttons vertically */
+    align-items: center;
+  }
+
+  .clear-btn,
+  .next-btn {
+    width: 100%; /* Buttons take full width */
+    font-size: 16px;
+    padding: 15px;
+  }
+
+  .clear-btn,
+  .next-btn {
+    margin-bottom: 15px; /* Space between buttons */
+  }
 }

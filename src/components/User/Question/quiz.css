@@ -1,4 +1,4 @@
-body {
+Default Styles body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background-color: #f5f5f5;
   margin: 0;
@@ -9,6 +9,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  height: 100vh;
   padding: 10px;
   background-color: white;
   border-radius: 8px;
@@ -17,6 +18,7 @@ body {
 
 .row {
   display: flex;
+  flex-direction: row; /* Keeps the grid and question side-by-side */
 }
 
 .grid-container {
@@ -67,19 +69,6 @@ h3 {
   margin-top: 20px;
 }
 
-.options label {
-  display: flex;
-  align-items: center;
-  font-size: 18px;
-  margin-bottom: 10px;
-}
-
-.options input[type="radio"] {
-  margin-right: 20px;
-  width: 20px;
-  height: 20px;
-}
-
 .navigation-buttons {
   margin-top: 20px;
   display: flex;
@@ -102,7 +91,8 @@ h3 {
   color: white;
   margin-right: 10px;
 }
-.nextbn{
+
+.nextbn {
   padding: 10px 20px;
   font-size: 16px;
   border: none;
@@ -114,7 +104,8 @@ h3 {
   color: white;
   margin-right: 10px;
 }
-.clearbn{
+
+.clearbn {
   padding: 10px 20px;
   font-size: 16px;
   border: none;
@@ -126,7 +117,8 @@ h3 {
   color: white;
   margin-right: 10px;
 }
-.backbn{
+
+.backbn {
   padding: 10px 20px;
   font-size: 16px;
   border: none;
@@ -138,6 +130,7 @@ h3 {
   color: white;
   margin-right: 10px;
 }
+
 .navigation-buttons .next-btn {
   background-color: #007bff;
   color: white;
@@ -151,118 +144,127 @@ h3 {
   background-color: #0056b3;
 }
 
+.timer {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 16px;
+  background-color: rgba(0, 0, 0, 0.1);
+  padding: 8px 12px;
+  border-radius: 5px;
+}
 
-@media (max-width: 1200px) {
+.answer-button {
+  font-size: 14px;
+  color: #333;
+  background-color: #e7e7e7;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+.answer-button:hover {
+  background-color: #dcdcdc;
+}
+
+.answered {
+  background-color: #28a745;
+}
+
+.answered:hover {
+  background-color: #218838;
+}
+
+.options .form-check {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.options input[type='radio'] {
+  margin-right: 10px; /* Space between the radio button and the text */
+  width: 20px; /* Adjust the size of the radio button if needed */
+  height: 20px;
+}
+
+.options label {
+  font-size: 18px; /* Adjust the font size if needed */
+  margin: 0; /* Remove any default margin */
+}
+
+/* Media Queries for Mobile View */
+@media (max-width: 768px) {
+  .container {
+    padding: 10px;
+    height: auto; /* Allow for content to expand vertically */
+  }
+
+  .row {
+    flex-direction: column;
+  }
+
   .grid-container {
-    grid-template-columns: repeat(4, 60px);
-    margin-right: 20px;
+    grid-template-columns: repeat(
+      5,
+      60px
+    ); /* Reduce grid items for small screens */
+    gap: 10px;
+    margin-right: 0;
+    margin-bottom: 20px;
   }
 
   .question-section {
     padding: 15px;
   }
-}
 
-@media (max-width: 992px) {
-  .grid-container {
-    grid-template-columns: repeat(3, 60px);
+  .question-section h3 {
+    font-size: 16px;
   }
 
-  .container {
-    padding: 30px;
+  .timer {
+    position: relative;
+    top: 0;
+    right: 0;
+    font-size: 14px;
+    padding: 5px 10px;
+  }
+
+  .options .form-check {
+    margin-bottom: 15px;
   }
 
   .navigation-buttons {
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
   }
 
-  .navigation-buttons .back-btn {
-    margin-right: 0;
+  .navigation-buttons .back-btn,
+  .navigation-buttons .next-btn,
+  .navigation-buttons .clear-btn {
     margin-bottom: 10px;
+    width: 100%; /* Full width buttons */
+  }
+
+  .navigation-buttons .back-btn,
+  .navigation-buttons .next-btn {
+    height: 40px;
+  }
+
+  .grid-item {
+    font-size: 16px; /* Adjust font size for mobile */
+    padding: 12px;
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 480px) {
   .grid-container {
-    grid-template-columns: repeat(2, 60px);
-    margin-right: 0;
-    gap: 10px;
+    grid-template-columns: repeat(5, 60px); /* Further reduce grid items */
+    gap: 5px;
   }
 
-  .question-section {
+  .grid-item {
+    font-size: 14px;
     padding: 10px;
   }
-
-  h3 {
-    font-size: 16px;
-  }
-
-  .options label {
-    font-size: 16px;
-  }
-
-  .navigation-buttons .back-btn, 
-  .navigation-buttons .next-btn {
-    padding: 8px 16px;
-    font-size: 14px;
-  }
-}
-
-@media (max-width: 576px) {
-  body {
-    padding: 20px;
-  }
-
-  .grid-container {
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
-  }
-
-  .container {
-    padding: 20px;
-  }
-
-  /* .navigation-buttons {
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  } */
-
-  /* .navigation-buttons .back-btn {
-    margin-bottom: 10px;
-    margin-right: 0;
-  } */
-
-  .navigation-buttons .back-btn,
-  .navigation-buttons .back-btn,
-  .navigation-buttons .next-btn {
-    width: 100%;
-    text-align: center;
-  }
-}
-
-.grid-item {
-  /* Default styles for the grid button */
-  background-color: #f0f0f0; /* Neutral color */
-  border: 1px solid #ccc;
-  padding: 10px;
-  cursor: pointer;
-}
-
-.grid-item.active {
-  background-color: #007bff; /* Color for the active question */
-  color: white;
-}
-
-.grid-item.answered {
-  background-color: #28a745; /* Color for answered questions */
-  color: white;
-}
-.timer {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  font-size: 18px;
-  font-weight: bold;
-  color: #333;
 }
