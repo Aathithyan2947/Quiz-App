@@ -15,13 +15,14 @@ export const Login = () => {
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
+  const [showPassword, setShowPassword] = useState(false);
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
         console.log('User details:', user); // Inspect the user object
         if (user.emailVerified) {
-          alert('Email is verified');
+          console.log('user is verified');
         } else {
           console.log('Email is not verified');
         }
@@ -38,7 +39,10 @@ export const Login = () => {
     try {
       setLoading(true);
       // localStorage.setItem("authToken", data.token);
-      if (email === 'admin@gmail.com' || email === 'aathireguraj@gmail.com') {
+      if (
+        email === 'inertiatorque@gmail.com' ||
+        email === 'aathireguraj@gmail.com'
+      ) {
         const res = await signInWithEmailAndPassword(auth, email, password)
           .then(() => {
             localStorage.setItem('user_id', auth.currentUser.uid);
@@ -52,10 +56,11 @@ export const Login = () => {
           });
         console.log(res);
       } else {
-        const res = await signInWithEmailAndPassword(auth, email, password)
+        await signInWithEmailAndPassword(auth, email, password)
           .then(() => {
             localStorage.setItem('user_id', auth.currentUser.uid);
             setLoading(false);
+            localStorage.setItem('username', auth.currentUser.displayName);
             navigate('/user');
           })
           .catch((err) => {
@@ -63,7 +68,6 @@ export const Login = () => {
             setLoading(false);
             console.log(err);
           });
-        console.log(res);
       }
     } catch (err) {
       setLoading(false);
@@ -111,7 +115,7 @@ export const Login = () => {
             </div>
             <div className='input-wrapper'>
               <input
-                type='password'
+                type={showPassword ? 'text' : 'password'}
                 required
                 id='password'
                 autoComplete='true'
@@ -122,6 +126,22 @@ export const Login = () => {
                 className='form-control mb-3'
               />
               <label htmlFor='password'>Password</label>
+              <span
+                onClick={() => setShowPassword((prev) => !prev)}
+                className='password-toggle position-absolute '
+                style={{
+                  top: '40%',
+                  right: '10px',
+                  transform: 'translateY(-50%)',
+                  cursor: 'pointer',
+                }}
+              >
+                {
+                  showPassword
+                    ? 'Hide' // Use Bootstrap Icons for hidden state
+                    : 'Show' // Use Bootstrap Icons for visible state
+                }
+              </span>
             </div>
             <div
               onClick={forgetPassword}

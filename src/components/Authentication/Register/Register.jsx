@@ -4,6 +4,7 @@ import '../Register/Register.css';
 import {
   createUserWithEmailAndPassword,
   sendEmailVerification,
+  updateProfile,
 } from 'firebase/auth';
 import { auth } from '../../../firebase/firebase-config';
 import Loading from '../../../utils/Loading';
@@ -34,7 +35,10 @@ const Register = () => {
           email,
           password
         );
-        const user = userCredential.user; // Get the user object from the userCredential
+        const user = userCredential.user;
+        await updateProfile(userCredential.user, {
+          displayName: username,
+        });
 
         console.log('Signed up successfully');
         localStorage.setItem('username', username);
